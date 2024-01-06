@@ -4,7 +4,7 @@
   "description": "a todo restful APIs for inerview tasks",
   "main": "src/index.js",
   "scripts": {
-    "prisma:generate": "npx prisma generate",
+    "prisma:generate": "pnpm dlx prisma generate",
     "dev": "nodemon src/index.ts",
     "start": "node ./dist/index.js",
     "build": "tsc"
