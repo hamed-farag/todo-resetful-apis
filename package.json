@@ -1,0 +1,32 @@
+{
+  "name": "todo-resetful-apis",
+  "version": "1.0.0",
+  "description": "a todo restful APIs for inerview tasks",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamed-farag/todo-resetful-apis.git"
+  },
+  "keywords": [
+    "todo",
+    "apis"
+  ],
+  "author": "hamed-farag",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hamed-farag/todo-resetful-apis/issues"
+  },
+  "homepage": "https://github.com/hamed-farag/todo-resetful-apis#readme",
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "prisma": "^5.7.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.7.1"
+  }
+}
