@@ -1,0 +1,30 @@
+name: Deploy Docker Image
+
+on:
+  workflow_dispatch:
+    inputs:
+      TAG_NUMBER:
+        description: 'Docker Tag Number'     
+        required: true
+  push:
+    branches:
+      - main  # Set your branch name here
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v2
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+    - name: Build and Push Docker Image
+      uses: docker/build-push-action@v2
+      with:
+        push: true
+        tags: hamedmfarag/todo:${{inputs.TAG_NUMBER}}  # Replace 'tagname' with your tag
