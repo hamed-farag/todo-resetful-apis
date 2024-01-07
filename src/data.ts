@@ -7,6 +7,7 @@ async function getAllTodoData(offset: number, size: number) {
   const results = await prisma.todo.findMany({
     skip: offset,
     take: size,
+    orderBy: { updatedAt: "desc" },
   });
   return results;
 }
