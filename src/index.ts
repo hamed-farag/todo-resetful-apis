@@ -2,6 +2,9 @@ import path from "path";
 import express from "express";
 import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 import { routes } from "./routes";
 
@@ -31,7 +34,12 @@ const options = {
   swaggerDefinition,
   // Paths to files containing OpenAPI definitions
 
-  apis: [path.join(__dirname, "/routes.ts")],
+  apis: [
+    path.join(
+      __dirname,
+      process.env.NODE_ENV === "development" ? "/routes.ts" : "./routes.js"
+    ),
+  ],
 };
 
 const swaggerSpec = swaggerJSDoc(options);
