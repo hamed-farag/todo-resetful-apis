@@ -1,3 +1,11 @@
+FROM postgres:latest
+
+# Set environment variables
+ENV POSTGRES_DB=todo
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=123456789
+
+
 # Installs Node.js image
 FROM node:alpine as base
 
@@ -18,9 +26,11 @@ RUN pnpm install
 # Build the application
 RUN pnpm build
 
+# Expose the port the app runs on
+EXPOSE 3000
+
+# Expose the PostgreSQL port
+EXPOSE 5432
+
 # Runs the dev npm script to build & start the server
 CMD ["sh", "-c", "pnpm prisma:generate && pnpm prisma:deploy && pnpm start"]
-
-
-
-# docker compose up --build
